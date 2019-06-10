@@ -1,0 +1,77 @@
+<!DOCTYPE>
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+	table ,th, td { border: 1px solid blue; 
+               border-collapse: collapse;
+}
+
+table { text-align: center; font-family: Arial, Geneva,sans-serif; column-span: 2; }
+body { align: center; background-color: #d6d6c2; }
+
+th , td { padding: 5px;}
+th { color: red;}
+
+h3 { color:red;}
+h4 {color: blue;}
+</style>
+	<title></title>
+</head>
+<body>
+<div>
+	<h1>Thanks for taking your time and submit the form!</h1>
+</div>
+
+
+<div id="" style="color: blue;"><h2>Loading data using Ajax: </h2></div>
+<h2 >Click this button to see who is coming:</h2><br>
+ <table id="load"></table>
+ 
+<button type="button" onclick="showmyList()" >Click Here to Load </button>
+
+<script type="text/javascript">
+	
+
+  function showmyList(){
+	 
+	 var demand = new XMLHttpRequest();
+	  
+	  demand.onreadystatechange = function(){
+	     if(demand.readyState == 4 && demand.status == 200){
+		   
+		   xmlDoc = demand.responseXML;
+		   var mem = xmlDoc.getElementsByTagName("member");
+		   var table = "<tr><th>Name</th><th>Relationship</th><th>status</th></tr>";
+		   var i ;
+		   for ( i = 0 ; i < mem.length; i++){
+		   
+		   table += "<tr><td>" +
+   xmlDoc.getElementsByTagName("name")[i].childNodes[0].nodeValue +  "</td><td>" +
+   xmlDoc.getElementsByTagName("relation")[i].childNodes[0].nodeValue +  "</td><td>" +
+   xmlDoc.getElementsByTagName("status")[i].childNodes[0].nodeValue +  "</td><td>" ;
+  
+		   
+		   }
+		   
+		    document.getElementById("load").innerHTML = table ;
+		   
+		   
+		 }
+	  
+	  }
+	  demand.open("GET","list.xml", true);
+	  demand.send();
+	
+	
+	}       
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

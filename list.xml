@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<family>
+	<member>
+		<name>Caren Tristan</name>
+		<relation>Friend of the famile</relation>
+		<status>Married with 3 kids</status>
+	</member>
+	<member>
+		<name>Randy Balling</name>
+		<relation>Best man</relation>
+		<status>Single</status>
+	</member>
+	<member>
+		<name>Jack Balling</name>
+		<relation>Cousin of the best man</relation>
+		<status>Divorce with one kid</status>
+	</member>
+	<member>
+		<name>Joetta Etienne</name>
+		<relation>Close friend of the family</relation>
+		<status>Single and graduated from Charles University</status>
+	</member>
+	<member>
+		<name>Marcia Ecker</name>
+		<relation>Friend of Etienne</relation>
+		<status>Single and DA assistance</status>
+	</member>
+	<member>
+		<name>Karol Beams</name>
+		<relation>Best friend of the best man</relation>
+		<status>Married with 1 kid</status>
+	</member>
+	<member>
+		<name>Shavon White</name>
+		<relation>Aunt</relation>
+		<status>CEO of best Buy</status>
+	</member>
+	<member>
+		<name>Darron Deltoro</name>
+		<relation>High School friend</relation>
+		<status>Actor</status>
+	</member>
+	<member>
+		<name>Audry Green</name>
+		<relation>Lawer of the family</relation>
+		<status>Single Mom</status>
+	</member>
+	<member>
+		<name>Irina Kang</name>
+		<relation>Others</relation>
+		<status>Single and developer at Apple</status>
+	</member>
+	<member>
+		<name>Wade Jackson</name>
+		<relation>Others</relation>
+		<status>Single</status>
+	</member>
+</family>
