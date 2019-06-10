@@ -1,0 +1,305 @@
+<!DOCTYPE>
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+label {float:left; width: 12em; text-align: right}
+input, select {width: 12em; margin-left: 1em; margin-bottom: 1em;}
+form { margin: 1px; width: ; padding: 0 2em 1em; border: 1px solid blue; }
+body { align: center; background-color: #d6d6c2; }
+</style>
+	<title></title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+</head>
+<body>
+
+<form id="myform" name="myform" action="thank.html" method="post">
+<h1>Welcome to Mr. and Ms. Wedding Form Invitation:</h1>
+<h2>Please Fill out The Form: </h2>
+
+	<label for="first">First Name:</label>
+	<input type="text" id="first">
+	<span style="color:red;"></span><br>
+
+	<label for="last">Last Name:</label>
+	<input type="text" id="last">
+	<span style="color:red;"></span><br>
+
+	<label for="email">Email Address:</label>
+	<input type="text" id="email">
+	<span style="color:red;"></span><br>
+
+	<label for="phone">Phone Number:</label>
+	<input type="text" id="phone" placeholder="999-999-9999">
+	<span style="color:red;"></span><br>
+
+	<label for="home">Home Address:</label>
+	<input type="text" id="home">
+	<span style="color:red;"></span><br>
+
+	<label for="city">City:</label>
+	<input type="text" id="city">
+	<span style="color:red;"></span><br>
+
+	<label for="state">State:</label>
+	<input type="text" id="state">
+	<span style="color:red;"></span><br>
+
+	<label for="zip">Zip Code:</label>
+	<input type="text" id="zip">
+	<span style="color:red;"></span><br>
+  <br><br>
+
+  <label for="status">Select your Status:</label>
+  <select id="status">
+    <option value="selected">
+     Choose one
+    </option>
+    <option value="single">Single</option>
+    <option value="Maried">Married</option>
+    <option value="others">Others</option>
+  </select>
+  <span  id="stat" style="color:red;"></span><br>
+   <br><br>
+
+
+  <label for="attend">Will You Attend?:</label>
+  <input type="radio" name="r"  id="ra" value="yes">Yes
+  <input type="radio" name="r" id="ra"  value="no">No
+  <input type="radio" name="r"  id="ra" value="maybe">Maybe
+  <span id="radi" style="color:red;"></span><br><br>
+  <br><br>
+  <br><br>
+
+
+  <h2>Emergency Contact Information:</h2>
+
+  <label for="name">Name:</label>
+  <input type="text" id="name">
+  <span style="color:red;"></span><br>
+
+
+  <label for="phone1">Phone Number:</label>
+  <input type="text" id="phone1" placeholder="999-999-9999">
+  <span style="color:red;"></span><br>
+
+  <label for="relation">Relationship:</label>
+  <input type="text" id="relation">
+  <span style="color:red;"></span><br>
+
+	<label>&nbsp;</label>
+	<input type="button" id="btnform" value="Submit Form">
+  <input type="reset" name="reset" id="reset" value="Reset">
+</form>
+
+<script type="text/javascript">
+
+	$(document).ready(function(){
+      
+      $("#btnform").click(
+      	function(){
+
+             var firstname = $("#first").val();
+             var lastname = $("#last").val();
+             var Name =   $("#name").val();
+             var numb =   $("#phone").val();
+             
+             var valid = true;
+
+  if (firstname ==""){
+  	$("#first").next().text("Please enter your first name.");
+  	valid = false;
+} else if (!isNaN(firstname)){
+      $("#first").next().text("This field must contains letters.");
+      valid=false;
+    }
+else
+ {
+$("#first").next().text("");
+}
+
+// validate last name
+
+     if (lastname ==""){
+    $("#last").next().text("Please enter your last name.");
+    valid = false;
+} else if (!isNaN(lastname)){
+      $("#last").next().text("This field must contains letters.");
+      valid=false;
+}
+else
+ {
+$("#last").next().text("");
+}
+
+// validate phone
+if (numb==""){
+      $("#phone").next().text("Please enter your phone Number.");
+      valid= false;
+     } else if (isNaN(numb)){
+      $("#phone").next().text("his field must contains numbers.");
+      valid=false;
+     } else if (numb.length < 10){
+      $("#phone").next().text("Please enter 10 digit numbers.");
+      valid= false
+     } else {
+      $("#phone").next().text("");
+     }
+
+
+
+// validate email
+
+var pattern = /\b[A-Za-z0-9_%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}\b/;
+    var emaill = $("#email").val();
+
+    if(emaill == ""){
+      $("#email").next().text("this field is required");
+      valid = false;
+    } else if (!pattern.test(emaill)){
+      $("#email").next().text("Must be a valid email address");
+      valid = false;
+    } else { $("#email").next().text("");}
+
+     // validate address
+
+ 
+      if ($("#home").val() ==""){
+      	$("#home").next().text("Please enter your Address");
+      	valid= false;
+      } else{
+      	$("#home").next().text("");
+      }
+
+      if ($("#city").val() ==""){
+      	$("#city").next().text("Please enter your city");
+      	valid= false;
+      } else{
+      	$("#city").next().text("");
+      }
+
+  // validate state
+
+
+       if ($("#state").val() ==""){
+      	$("#state").next().text("Please enter your State");
+      	valid= false;
+      } else{
+      	$("#state").next().text("");
+      }
+      // validate zip code
+
+      if ($("#zip").val().length < 5){
+      	$("#zip").next().text("Please enter 5 digit code");
+      	valid= false;
+      } else if (isNaN($("#zip").val())){
+        $("#zip").next().text("Please enter only numbers");
+        valid= false;
+      }
+      else{
+      	$("#zip").next().text("");
+      }
+// radio
+       
+        if ($('input[name=r]:checked').length <=0){
+       // alert("Please check one");
+       $("#radi").html("Please check your status");
+        valid= false;
+          } else{
+            
+          }
+
+        // validate attend
+
+
+        var attend = $("#status option:selected").val();
+      
+
+      if(attend ==""){
+        $("#stat").html("Please select one choice.");
+         valid = false;
+       } else{
+        
+        }
+      
+
+          
+          // contact info
+
+          var firstname1 = $("#name").val();
+
+          if (firstname1 ==""){
+      $("#name").next().text("Please enter your name.");
+    valid = false;
+
+      } else if (!isNaN(firstname1)){
+      $("#name").next().text("This field must contains letters.");
+      valid=false;
+    }
+      else
+      {
+     $("#name").next().text("");
+      }
+
+
+        var numb1 = $("#phone1").val();
+
+        if (numb1==""){
+      $("#phone1").next().text("Please enter your phone Number.");
+      valid= false;
+     } else if (isNaN(numb1)){
+      $("#phone1").next().text("Please enter your phone Number.");
+      valid=false;
+     } else if (numb1.length < 10){
+      $("#phone1").next().text("Please enter 10 digit numbers.");
+      valid= false
+     }
+     else{
+      $("#phone1").next().text("");
+     }
+
+
+    // relation
+
+  var relations = $("#relation").val();
+    if (relations ==""){
+      $("#relation").next().text("Please enter your Relationship.");
+    valid = false;
+      } 
+      else
+      {
+     $("#relation").next().text("");
+      }
+      
+
+
+
+
+
+
+
+
+
+
+
+
+if (valid){
+	$("#myform").submit();
+}
+
+
+
+
+
+
+      });
+
+     $("#email1").focus(); 
+  
+	});
+</script>
+</body>
+</html>
