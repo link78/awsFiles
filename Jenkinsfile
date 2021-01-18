@@ -1,7 +1,8 @@
 pipeline {
     agent any
     parameters{
-        string(name: 'Greetings', defaultValue: 'Hello Jenkins community', description:'Just new here')
+        string(name: 'Greetings', defaultValue: 'Hello Jenkins community', description:'Just new here'),
+        string(name: 'jenkins', defaultValue: 'Refreshing my skills with jenkins'.description: 'most popular build server')
     }
     stages {
         stage('Hello') {
